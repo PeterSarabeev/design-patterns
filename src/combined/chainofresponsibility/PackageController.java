@@ -33,7 +33,11 @@ public class PackageController {
 	}
 
 	public static void listOrder(PackageD packageD) {
-		orderBuffer.add(packageD);
+		try {
+			orderBuffer.add(packageD.clone());
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void printOrderList() {
